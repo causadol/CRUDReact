@@ -1,7 +1,7 @@
 const Persona = require("../models/mPersona");
 
 // Listar Coleccion Persona
-module.exports.consultar = (req, res) => {
+module.exports.listar = (req, res) => {
     Persona.find()
     .then((response) => {
         res.send(response);
