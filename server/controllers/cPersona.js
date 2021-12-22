@@ -10,6 +10,7 @@ module.exports.consultar = (req, res) => {
         res.status(400).json({ error });        
     });    
 };
+
 // Guardar
 module.exports.guardar = (req, res) => {
     const { identificacion, nombre, direccion, telefono, correo, user, pass, rol } = req.body;
