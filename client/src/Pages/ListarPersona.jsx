@@ -11,7 +11,7 @@ const ListarPersona = () => {
     
     axios.get("http://localhost:5000/api/listar")
     .then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
     }); 
       
     return ( 
