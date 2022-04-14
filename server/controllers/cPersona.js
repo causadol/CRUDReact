@@ -4,7 +4,7 @@ const Persona = require("../models/mPersona");
 module.exports.listar = (req, res) => {
     Persona.find()
     .then((response) => {
-        res.send(response);
+        res.status(200).json(response);
     })
     .catch((error) => {
         res.status(400).json({ error });        

@@ -6,13 +6,44 @@ import Side from '../Components/Menu';
 import salert from 'sweetalert';
 import axios from 'axios';
 
-
+const Lista =()=>{
+    const datos=[];
+     axios.get("http://localhost:5000/api/listar")
+    .then((response)=>{
+        datos=response.data;
+    });
+    
+    return (
+        <div>
+            
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Identificacion</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">correo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {datos.map(item =>(
+                            <tr key={item._id}>
+                                <td>{item.identificacion}</td>
+                                <td>{item.nombre}</td>
+                                <td>{item.direccion}</td>
+                                <td>{item.telefono}</td>
+                                <td>{item.correo}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            
+        </div>
+    );
+}
 const ListarPersona = () => {   
     
-    axios.get("http://localhost:5000/api/listar")
-    .then((response) => {
-        //console.log(response.data);
-    }); 
       
     return ( 
         <div className="container">
@@ -26,21 +57,7 @@ const ListarPersona = () => {
                     <Side />
                 </div>
                 <div className="col-md-9">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Identificacion</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Direccion</th>
-                                <th scope="col">Telefono</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                
-                            </tr>
-                        </tbody>
-                    </table>
+                    <Lista />
                 </div>
             </div>
             <br></br>
